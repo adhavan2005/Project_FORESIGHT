@@ -1,0 +1,5 @@
+sku_id,category,risk_status,recommended_action,sales_at_risk_inr,locked_capital_inr,stock_on_hand,stock_on_order,total_available_stock,lead_time_days,forecast_lead_time_demand,weeks_of_supply,forecast_avg_weekly,forecast_total_6w,forecast_w1,forecast_w2,forecast_w3,forecast_w4,forecast_w5,forecast_w6,unit_cost,selling_price
+SKU_REORDER,Furniture,Stockout Risk,Reorder Now,3442.36,0.0,20,0,20,5,33.77,0.42,47.28,283.69,53.68,51.38,49.16,43.49,42.99,42.99,120.0,249.99
+SKU_WATCH,Textiles,Stockout Risk,Reorder Now,125.99,0.0,60,40,100,10,101.4,0.85,70.98,425.9,85.53,78.36,85.3,57.29,60.78,58.64,45.0,89.99
+SKU_CLEAR,Decor,Overstock Risk,Markdown/Clear,0.0,1599.6,150,0,150,7,10.84,13.84,10.84,65.07,11.65,11.72,11.38,11.67,7.61,11.04,15.0,29.99
+SKU_HEALTHY,Lighting,Healthy,Maintain,0.0,0.0,50,0,50,5,28.37,1.26,39.72,238.3,39.53,39.29,41.47,40.97,37.03,40.01,35.0,79.99

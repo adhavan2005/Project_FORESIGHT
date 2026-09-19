@@ -1,0 +1,5 @@
+sku_id,date,stock_on_hand,stock_on_order,category,lead_time_days,unit_cost,selling_price,total_available_stock,inventory_value_cost,inventory_value_retail
+SKU_CLEAR,2026-08-27,150,0,Decor,7,15.0,29.99,150,2250.0,4498.5
+SKU_HEALTHY,2026-08-27,50,0,Lighting,5,35.0,79.99,50,1750.0,3999.5
+SKU_REORDER,2026-08-27,20,0,Furniture,5,120.0,249.99,20,2400.0,4999.8
+SKU_WATCH,2026-08-27,60,40,Textiles,10,45.0,89.99,100,2700.0,5399.4
