@@ -1,2 +1,16 @@
+[project]
+name = "project-foresight"
+version = "0.1.0"
+description = "Project FORESIGHT Demand Forecasting and Risk Intelligence API"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "pydantic>=2.0.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+]
+
 [tool.vercel]
 entrypoint = "app.api:app"

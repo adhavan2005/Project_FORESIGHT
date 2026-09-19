@@ -8,3 +8,5 @@ ENV/
 .ipynb_checkpoints/
 .DS_Store
 *.log
+*.egg-info/
+
