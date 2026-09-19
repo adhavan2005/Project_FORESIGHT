@@ -342,21 +342,20 @@ with tab1:
             )
             .properties(height=220)
         )
-        st.altair_chart(risk_bar, use_container_width=True)
+        st.altair_chart(risk_bar, width="stretch")
 
     with ch_col2:
         st.markdown("**Weeks of Supply (WoS) vs 12-Week Policy Ceiling**")
+        view_df["color"] = view_df["weeks_of_supply"].apply(
+            lambda x: "#f59e0b" if x > 12 else ("#ef4444" if x < 1.0 else "#22c55e")
+        )
         wos_bar = (
             alt.Chart(view_df)
             .mark_bar(cornerRadiusTopLeft=6, cornerRadiusTopRight=6)
             .encode(
                 x=alt.X("sku_id:N", title="SKU ID", sort="-y"),
                 y=alt.Y("weeks_of_supply:Q", title="Weeks of Supply (WoS)"),
-                color=alt.condition(
-                    alt.datum.weeks_of_supply > 12,
-                    alt.value("#f59e0b"),
-                    alt.condition(alt.datum.weeks_of_supply < 1.0, alt.value("#ef4444"), alt.value("#10b981")),
-                ),
+                color=alt.Color("color:N", scale=None),
                 tooltip=[
                     alt.Tooltip("sku_id:N", title="SKU"),
                     alt.Tooltip("weeks_of_supply:Q", title="Weeks of Supply", format=".2f"),
@@ -367,7 +366,7 @@ with tab1:
             .properties(height=220)
         )
         rule = alt.Chart(pd.DataFrame({"y": [12.0]})).mark_rule(color="#ef4444", strokeDash=[4, 4]).encode(y="y:Q")
-        st.altair_chart(wos_bar + rule, use_container_width=True)
+        st.altair_chart(wos_bar + rule, width="stretch")
 
     # Detailed Interactive Table
     table_cols = [
@@ -401,7 +400,7 @@ with tab1:
             "Avg Weekly Forecast": "{:.1f} units",
             "6-Week Forecast Total": "{:.1f} units",
         }),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -531,7 +530,7 @@ with tab2:
     )
 
     full_chart = (hist_chart + fc_chart + split_rule).properties(height=380)
-    st.altair_chart(full_chart, use_container_width=True)
+    st.altair_chart(full_chart, width="stretch")
 
     # Weekly Forecast Breakdown & Runout Metric
     brk_col1, brk_col2 = st.columns([2, 1])
@@ -551,7 +550,7 @@ with tab2:
             )
             .properties(height=180)
         )
-        st.altair_chart(w_bars, use_container_width=True)
+        st.altair_chart(w_bars, width="stretch")
 
     with brk_col2:
         st.markdown("**Inventory Runout Timeline**")
@@ -655,7 +654,7 @@ with tab4:
     if po_records:
         st.markdown("### 🛒 Recommended Replenishment Purchase Orders")
         po_df = pd.DataFrame(po_records)
-        st.dataframe(po_df, use_container_width=True, hide_index=True)
+        st.dataframe(po_df, width="stretch", hide_index=True)
 
         st.download_button(
             label="📥 Export Replenishment Purchase Orders (CSV)",
@@ -685,7 +684,7 @@ with tab4:
                 "Projected Working Capital Liberated": f"₹{excess_units * r['unit_cost']:,.2f}",
             })
         clear_df = pd.DataFrame(clear_records)
-        st.dataframe(clear_df, use_container_width=True, hide_index=True)
+        st.dataframe(clear_df, width="stretch", hide_index=True)
 
     st.divider()
     st.markdown("### 📥 Full System Export")
